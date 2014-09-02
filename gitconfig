@@ -1,35 +1,36 @@
 [user]
-	name = Danny Cosson
-	email = dcosson@gmail.com
+  name = Edmund Yan
+  email = edmund.yan@venmo.com
 [core]
-	excludesfile = /Users/dcosson/.gitignore
+  excludesfile = /Users/edyan/.gitignore
+	editor = vim
 [rerere]
-	enabled = 1
+  enabled = 1
 [remote "origin"]
-	push = HEAD
+  push = HEAD
 [branch "master"]
-	merge = refs/heads/master
+  merge = refs/heads/master
 [alias]
-        br = branch
-	ci = commit -a
-	co = checkout
-	dwc = diff -w -M --color-words
-	fix = rebase -i origin/master
-        new = !sh -c 'git log $1@{1}..$1@{0} "$@"'
-	recent-branches = --paginate for-each-ref --format='%(committerdate:relative)%09%(refname:short)' --sort='-committerdate' refs/heads
-	recent-branches-origin = --paginate for-each-ref --format='%(committerdate:relative)%09%(refname:short)' --sort='-committerdate' refs/remotes/origin
-	re = remote -v
-	st = status
-	sup = "submodule foreach 'git co master; git up'"
-	tree = log --graph --decorate --pretty=oneline --abbrev-commit --all
-	up = "!git remote update -p; git merge --ff-only @{u}"
-	everything = log --pretty=format: --name-only --diff-filter=A
-        browse = "!hub browse"
+  br = branch
+  ci = commit -a
+  co = checkout
+  dwc = diff -w -M --color-words
+  fix = rebase -i origin/master
+  new = !sh -c 'git log $1@{1}..$1@{0} "$@"'
+  recent-branches = --paginate for-each-ref --format='%(committerdate:relative)%09%(refname:short)' --sort='-committerdate' refs/heads
+  recent-branches-origin = --paginate for-each-ref --format='%(committerdate:relative)%09%(refname:short)' --sort='-committerdate' refs/remotes/origin
+  re = remote -v
+  st = status
+  sup = "submodule foreach 'git co master; git up'"
+  tree = log --graph --decorate --pretty=oneline --abbrev-commit --all
+  up = "!git remote update -p; git merge --ff-only @{u}"
+  everything = log --pretty=format: --name-only --diff-filter=A
+  browse = "!hub browse"
 [push]
-	default = simple
+  default = simple
 [merge]
-	defaultToUpstream = true
+  defaultToUpstream = true
 [color]
-	ui = true
+  ui = true
 [hub]
-	host = github.braintreeps.com
+  host = github.braintreeps.com

@@ -42,7 +42,9 @@ set splitbelow splitright
 
 set mouse=a  " enable scroll with mouse wheel
 
-let mapleader=","
+" Set '\' and ' ' as leader
+let mapleader="\\"
+:map " " <leader>
 
 " Powerline status line
 let g:Powerline_symbols = 'fancy'
@@ -83,10 +85,6 @@ augroup mkd
 augroup END
 
 
-" SnipMate? Not using it, maybe someday i will
-"autocmd FileType python set ft=python.django " For SnipMate
-"autocmd FileType html set ft=html.django_template " For SnipMate
-
 " Custom filetypes
 au BufRead,BufNewFile {Capfile,Gemfile,Rakefile,Vagrantfile,Thorfile,config.ru,.caprc,.irbrc,irb_tempfile*} set ft=ruby
 au BufRead,BufNewFile {*.less,*.sass} set ft=css
@@ -110,7 +108,7 @@ nmap ,a ggVG"*y
 nmap ,d "*yiw
 " copy highlighted to clipboard
 vmap ,c "*y
-" paste 
+" paste
 nmap ,v :set paste<CR>"*p:set nopaste<CR>
 " underline current line, markdown style
 nmap ,u "zyy"zp:.s/./-/g<CR>:let @/ = ""<CR>
@@ -132,9 +130,8 @@ nmap \v :e $MYVIMRC<CR>
 " :runtime! ~/.vim/
 
 " w!! to write with sudo
-cnoreabbrev <expr> w!!
-    \((getcmdtype() == ':' && getcmdline() == 'w!!')
-    \?('!sudo tee % >/dev/null'):('w!!'))
+" Allow saving of files as sudo when I forgot to start vim using sudo.
+cmap w!! w !sudo tee %
 
 " Have Vim jump to the last position when reopening a file
 if has("autocmd")
@@ -143,8 +140,8 @@ if has("autocmd")
 endif
 
 " Open useful sidebars (taglist, nerdtree)
-nnoremap ,w :TlistToggle<CR>
-nnoremap ,W :NERDTreeToggle<CR>
+nnoremap <Leader>w :TlistToggle<CR>
+nnoremap <Leader>W :NERDTreeToggle<CR>
 
 " Taglist options
 let g:Tlist_Ctags_Cmd = '/usr/local/bin/ctags'
@@ -152,7 +149,7 @@ let Tlist_Use_Right_Window = 1
 let Tlist_WinWidth = 45
 
 """
-""" Syntastic syntax checking 
+""" Syntastic syntax checking
 """
 " status line
 " set statusline+=%#warningmsg#
@@ -168,16 +165,29 @@ let g:syntastic_mode_map = { 'mode': 'active',
                            \ 'active_filetypes': [],
                            \ 'passive_filetypes': ['txt', 'go'] }
 " key shortcuts
-nmap <Ctrl>P ::CtrlPClearCache<CR>
 nmap ,e :SyntasticCheck<CR> :Errors<CR>
 nmap ,R :!!<CR>
+
+func! DeleteTrailingWS()
+  exe "normal mz"
+  %s/\s\+$//ge
+  exe "normal `z"
+endfunc
+noremap <leader>ws :call DeleteTrailingWS()<CR>
 
 "folding settings
 " set foldmethod=indent   "fold based on indent
 " set foldnestmax=10      "deepest fold is 10 levels
 " set foldlevel=1
 
-
+" --- GIT
+" -----------
+fun! PullAndRefresh()
+  set noconfirm
+  bufdo e!
+  set confirm
+endfun
+nmap <Leader>gr call PullAndRefresh()
 
 " --- Vimux commands to run tests
 let g:vimux_nose_setup_cmd="vagrant ssh; cd /vagrant"
@@ -190,3 +200,16 @@ map <Leader>ra :call VimuxRunNoseAll()<CR>
 map <Leader>rF :call VimuxRunNoseFile()<CR>
 map <Leader>rf :call VimuxRunNoseLine()<CR>
 map <Leader>rr :call VimuxRunLastCommand()<CR>
+
+
+" --- NERDtree
+" ------------
+let NERDTreeShowHidden=1
+
+
+" --- CtrlP
+" ------------
+let g:ctrlp_map = '<c-p>'
+let g:ctrlp_cmd = 'CtrlP'
+nmap <Ctrl>P ::CtrlPClearCache<CR>
+

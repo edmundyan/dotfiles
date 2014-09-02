@@ -156,8 +156,8 @@ defaults write com.apple.finder FXInfoPanesExpanded -dict \
 # Dock
 ###############################################################################
 
-# Dock on the right
-defaults write com.apple.dock orientation -string "right" 
+# Dock on the bottom
+defaults write com.apple.dock orientation -string "bottom" 
 
 # Automatically hide and show the Dock
 defaults write com.apple.dock autohide -bool true
@@ -190,21 +190,6 @@ defaults write com.apple.ActivityMonitor SortDirection -int 0
 # Don’t display the annoying prompt when quitting iTerm
 defaults write com.googlecode.iterm2 PromptOnQuit -bool false
 
-###############################################################################
-# Twitter.app                                                                 #
-###############################################################################
-
-# Disable smart quotes as it’s annoying for code tweets
-defaults write com.twitter.twitter-mac AutomaticQuoteSubstitutionEnabled -bool false
-
-# Show the app window when clicking the menu bar icon
-defaults write com.twitter.twitter-mac MenuItemBehavior -int 1
-
-# Open links in the background
-defaults write com.twitter.twitter-mac openLinksInBackground -bool true
-
-# Allow closing the ‘new tweet’ window by pressing `Esc`
-defaults write com.twitter.twitter-mac ESCClosesComposeWindow -bool true
 
 ###############################################################################
 # Kill affected applications                                                  #
@@ -212,7 +197,7 @@ defaults write com.twitter.twitter-mac ESCClosesComposeWindow -bool true
 
 for app in "Activity Monitor" "Address Book" "Calendar" "Contacts" "cfprefsd" \
     "Dock" "Finder" "Mail" "Messages" "Safari" "SizeUp" "SystemUIServer" \
-    "Terminal" "Transmission" "Twitter" "iCal"; do
+    "Terminal" "Transmission" "iCal"; do
     killall "${app}" > /dev/null 2>&1
 done
 echo "Done. Note that some of these changes require a logout/restart to take effect."
