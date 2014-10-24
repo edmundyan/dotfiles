@@ -14,6 +14,7 @@ declare -a dotfile_whitelist=(
   .tmux.conf\
   .vim\
   .vimrc\
+  .slate\
 )
 
 backup_dir="${HOME}/old_dotfiles"
