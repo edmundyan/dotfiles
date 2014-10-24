@@ -36,6 +36,8 @@ set showcmd
 set ai " Automatically set the indent of a new line (local to buffer)
 set tags=./tags;
 set grepprg=ack
+set hidden
+set noswapfile
 
 set equalalways " Multiple windows, when created, are equal in size
 set splitbelow splitright
@@ -75,9 +77,9 @@ autocmd FileType ruby set expandtab shiftwidth=2 softtabstop=2
 autocmd FileType yaml set expandtab shiftwidth=2 softtabstop=2
 
 autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
-autocmd FileType html SoftTab 2
+" autocmd FileType html SoftTab 2
 autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
-autocmd FileType css SoftTab 2
+" autocmd FileType css SoftTab 2
 autocmd FileType css set omnifunc=csscomplete#CompleteCSS
 
 augroup mkd
@@ -92,9 +94,10 @@ au BufRead,BufNewFile *.us set ft=html "our underscore.js html templates
 
 " don't show binary files in list of files to open
 set wildignore+=*.pyc,node_modules/**
+set wildignore+=*.compiled.templates.js
 let g:ctrlp_custom_ignore = {
   \ 'dir':  '\v[\/](\.git|node_modules)$',
-  \ 'file': '\v\.(exe|so|dll|pyc)$',
+  \ 'file': '\v\.(exe|so|dll|pyc)$|venmo_tests/cassettes/.*$',
   \ }
 let NERDTreeIgnore=[ '\.pyc$', '\.pyo$' ]
 
@@ -110,6 +113,9 @@ nmap ,d "*yiw
 vmap ,c "*y
 " paste
 nmap ,v :set paste<CR>"*p:set nopaste<CR>
+nnoremap <F2> :set invpaste paste?<CR>
+set pastetoggle=<F2>
+set showmode
 " underline current line, markdown style
 nmap ,u "zyy"zp:.s/./-/g<CR>:let @/ = ""<CR>
 
@@ -147,6 +153,12 @@ nnoremap <Leader>W :NERDTreeToggle<CR>
 let g:Tlist_Ctags_Cmd = '/usr/local/bin/ctags'
 let Tlist_Use_Right_Window = 1
 let Tlist_WinWidth = 45
+
+" --- GIT
+" -----------
+
+" Remove all whitespace in file
+:nnoremap <silent> <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
 
 """
 """ Syntastic syntax checking
