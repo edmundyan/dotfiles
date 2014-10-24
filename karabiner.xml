@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<root>
+    <!-- APPLICATIONS -->
+    <appdef>
+        <appname>Google_Chrome</appname>
+        <equal>com.google.Chrome</equal>
+    </appdef>
+    <appdef>
+        <appname>iTerm2</appname>
+        <equal>com.googlecode.iterm2</equal>
+    </appdef>
+    <item>
+        <name>F19 to F19</name>
+        <appendix>(F19 to Hyper (ctrl+shift+cmd+opt) + F19 Only, send escape)</appendix>
+        <identifier>private.f192f19_escape</identifier>
+        <autogen>
+            --KeyOverlaidModifier--
+            KeyCode::F19,
+            KeyCode::COMMAND_L,
+            ModifierFlag::OPTION_L | ModifierFlag::SHIFT_L | ModifierFlag::CONTROL_L,
+            KeyCode::ESCAPE
+        </autogen>
+    </item>
+    <item>
+        <name>Switch Command_L and Control_L (except iterm2)</name>
+        <identifier>private.swap+command_control_iterm2</identifier>
+        <not>iTerm2</not>
+        <autogen>
+            __KeyToKey__
+            KeyCode::COMMAND_L,
+            KeyCode::CONTROL_L
+        </autogen>
+        <autogen>
+            __KeyToKey__
+            KeyCode::CONTROL_L,
+            KeyCode::COMMAND_L
+        </autogen>
+    </item>
+    <item>
+        <name>Switch Command+Tab and Control+Tab(except iterm2)</name>
+        <identifier>private.command_tab_control_tab_iterm2</identifier>
+        <not>iTerm2</not>
+        <autogen>
+            __KeyToKey__
+            KeyCode::TAB, MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_CONTROL,
+            KeyCode::TAB, ModifierFlag::COMMAND_L,
+        </autogen>
+        <autogen>
+            __KeyToKey__
+            KeyCode::TAB, ModifierFlag::COMMAND_L,
+            KeyCode::TAB, MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_CONTROL,
+        </autogen>
+    </item>
+</root>
