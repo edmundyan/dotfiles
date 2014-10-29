@@ -172,6 +172,7 @@ let g:syntastic_enable_signs=0 "sign markings (at beginning of line, before line
 let g:syntastic_enable_highlighting=2
 let g:syntastic_auto_loc_list=0
 let g:syntastic_check_on_open=1
+let g:syntastic_python_flake8_post_args='--ignore=E501,E128,E225,E302,E702,E126'
 " mode info
 let g:syntastic_mode_map = { 'mode': 'active',
                            \ 'active_filetypes': [],

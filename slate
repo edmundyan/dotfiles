@@ -46,6 +46,14 @@ alias rightthird move screenOriginX+screenSizeX*2/3;screenOriginY screenSizeX/3;
 alias righthalf move screenOriginX+screenSizeX/2;screenOriginY screenSizeX/2;screenSizeY
 alias rightTthird move screenOriginX+screenSizeX/3;screenOriginY screenSizeX*2/3;screenSizeY
 
+alias topthird move screenOriginX;screenOriginY screenSizeX;screenSizeY/3
+alias tophalf move screenOriginX;screenOriginY screenSizeX;screenSizeY/2
+alias topTthird move screenOriginX;screenOriginY screenSizeX;screenSizeY*2/3
+
+alias botthird move screenOriginX;screenOriginY+screenSizeY*2/3 screenSizeX;screenSizeY/3
+alias bothalf move screenOriginX;screenOriginY+screenSizeY/2 screenSizeX;screenSizeY/2
+alias botTthird move screenOriginX;screenOriginY+screenSizeY/3 screenSizeX;screenSizeY*2/3
+
 alias topleft corner top-left resize:screenSizeX/2;screenSizeY/2
 alias topright corner top-right resize:screenSizeX/2;screenSizeY/2
 alias bottomleft corner bottom-left resize:screenSizeX/2;screenSizeY/2
@@ -54,23 +62,25 @@ alias bottomright corner bottom-right resize:screenSizeX/2;screenSizeY/2
  
 # Location Bindings
 bind 1:${hyper} ${bottomleft}
-bind 2:${hyper} push bottom bar-resize:screenSizeY/2
+bind 2:${hyper} chain ${botthird} | ${bothalf} | ${botTthird}
+#bind 2:${hyper} push bottom bar-resize:screenSizeY/2
 bind 3:${hyper} ${bottomright}
 bind 4:${hyper} chain ${leftthird} | ${lefthalf} | ${leftTthird}
 bind 5:${hyper} ${full}
 bind 6:${hyper} chain ${rightthird} | ${righthalf} | ${rightTthird}
 bind 7:${hyper} ${topleft}
-bind 8:${hyper} push top bar-resize:screenSizeY/2
+bind 8:${hyper} chain ${topthird} | ${tophalf} | ${topTthird}
+#bind 8:${hyper} push top bar-resize:screenSizeY/2
 bind 9:${hyper} ${topright}
 
 bind pad1:ctrl;cmd ${bottomleft}
-bind pad2:ctrl;cmd push bottom bar-resize:screenSizeY/2
+bind pad2:ctrl;cmd chain ${botthird} | ${bothalf} | ${botTthird}
 bind pad3:ctrl;cmd ${bottomright}
 bind pad4:ctrl;cmd chain ${leftthird} | ${lefthalf} | ${leftTthird}
 bind pad5:ctrl;cmd ${full}
 bind pad6:ctrl;cmd chain ${rightthird} | ${righthalf} | ${rightTthird}
 bind pad7:ctrl;cmd ${topleft}
-bind pad8:ctrl;cmd push top bar-resize:screenSizeY/2
+bind pad8:ctrl;cmd chain ${topthird} | ${tophalf} | ${topTthird}
 bind pad9:ctrl;cmd ${topright}
 
 bind left:ctrl;cmd chain ${leftthird} | ${lefthalf} | ${leftTthird}
@@ -79,13 +89,13 @@ bind up:ctrl;cmd ${full}
 
 # Numpad location Bindings
 bind pad1:${hyper} ${bottomleft}
-bind pad2:${hyper} push bottom bar-resize:screenSizeY/2
+bind pad2:${hyper} chain ${botthird} | ${bothalf} | ${botTthird}
 bind pad3:${hyper} ${bottomright}
 bind pad4:${hyper} chain ${leftthird} | ${lefthalf} | ${leftTthird}
 bind pad5:${hyper} ${full}
 bind pad6:${hyper} chain ${rightthird} | ${righthalf} | ${rightTthird}
 bind pad7:${hyper} ${topleft}
-bind pad8:${hyper} push top bar-resize:screenSizeY/2
+bind pad8:${hyper} chain ${topthird} | ${tophalf} | ${topTthird}
 bind pad9:${hyper} ${topright}
 
 bind z:${hyper} undo
