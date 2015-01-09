@@ -63,14 +63,12 @@ alias bottomright corner bottom-right resize:screenSizeX/2;screenSizeY/2
 # Location Bindings
 bind 1:${hyper} ${bottomleft}
 bind 2:${hyper} chain ${botthird} | ${bothalf} | ${botTthird}
-#bind 2:${hyper} push bottom bar-resize:screenSizeY/2
 bind 3:${hyper} ${bottomright}
 bind 4:${hyper} chain ${leftthird} | ${lefthalf} | ${leftTthird}
 bind 5:${hyper} ${full}
 bind 6:${hyper} chain ${rightthird} | ${righthalf} | ${rightTthird}
 bind 7:${hyper} ${topleft}
 bind 8:${hyper} chain ${topthird} | ${tophalf} | ${topTthird}
-#bind 8:${hyper} push top bar-resize:screenSizeY/2
 bind 9:${hyper} ${topright}
 
 bind pad1:ctrl;cmd ${bottomleft}
@@ -86,6 +84,7 @@ bind pad9:ctrl;cmd ${topright}
 bind left:ctrl;cmd chain ${leftthird} | ${lefthalf} | ${leftTthird}
 bind right:ctrl;cmd chain ${rightthird} | ${righthalf} | ${rightTthird}
 bind up:ctrl;cmd ${full}
+bind down:ctrl;cmd chain ${botthird} | ${bothalf} | ${botTthird}
 
 # Numpad location Bindings
 bind pad1:${hyper} ${bottomleft}
@@ -111,6 +110,3 @@ bind g:${hyper} throw 0 resize
 # Slate
 bind backslash:${hyper} relaunch
 
-# Switch apps
-
-bind s:${hyper} focus 'Sublime Text 2'
