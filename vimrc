@@ -218,6 +218,7 @@ map <Leader>rr :call VimuxRunLastCommand()<CR>
 " --- NERDtree
 " ------------
 let NERDTreeShowHidden=1
+let NERDSpaceDelims=1 "Add a space after comment for nerdcommenter
 
 
 " --- CtrlP
@@ -225,4 +226,9 @@ let NERDTreeShowHidden=1
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
 nmap <Ctrl>P ::CtrlPClearCache<CR>
+
+
+" --- vim-isort
+" -----------
+let g:vim_isort_map = '<c-i>'
 
