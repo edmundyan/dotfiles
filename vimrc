@@ -39,6 +39,13 @@ set grepprg=ack
 set hidden
 set noswapfile
 
+" On OSX
+" copy paste craziness
+nmap <F3> :set paste<CR>:r !pbpaste<CR>:set nopaste<CR>
+imap <F3> <Esc>:set paste<CR>:r !pbpaste<CR>:set nopaste<CR>
+nmap <F2> :.w !pbcopy<CR><CR>
+vmap <F2> :w !pbcopy<CR><CR>
+
 set equalalways " Multiple windows, when created, are equal in size
 set splitbelow splitright
 
@@ -113,8 +120,8 @@ nmap ,d "*yiw
 vmap ,c "*y
 " paste
 nmap ,v :set paste<CR>"*p:set nopaste<CR>
-nnoremap <F2> :set invpaste paste?<CR>
-set pastetoggle=<F2>
+nnoremap <F1> :set invpaste paste?<CR>
+set pastetoggle=<F1>
 set showmode
 " underline current line, markdown style
 nmap ,u "zyy"zp:.s/./-/g<CR>:let @/ = ""<CR>
