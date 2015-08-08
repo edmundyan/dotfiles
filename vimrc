@@ -219,7 +219,7 @@ map <Leader>rc :call VimuxCloseRunner()<CR>
 map <Leader>ra :call VimuxRunNoseAll()<CR>
 map <Leader>rF :call VimuxRunNoseFile()<CR>
 map <Leader>rf :call VimuxRunNoseLine()<CR>
-map <Leader>rr :call VimuxRunLastCommand()<CR>
+map <Leader>rr :call VimuxTogglePane()<CR>
 
 
 " --- NERDtree

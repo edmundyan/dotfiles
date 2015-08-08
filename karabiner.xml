@@ -9,6 +9,10 @@
         <appname>iTerm2</appname>
         <equal>com.googlecode.iterm2</equal>
     </appdef>
+    <appdef>
+        <appname>LoL</appname>
+        <equal>com.riotgames.LeagueofLegends.GameClient</equal>
+    </appdef>
     <item>
         <name>F19 to F19</name>
         <appendix>(F19 to Hyper (ctrl+shift+cmd+opt) + F19 Only, send escape)</appendix>
@@ -22,9 +26,10 @@
         </autogen>
     </item>
     <item>
-        <name>Switch Command_L and Control_L (except iterm2)</name>
+        <name>Switch Command_L and Control_L (except iterm2 lol)</name>
         <identifier>private.swap+command_control_iterm2</identifier>
         <not>iTerm2</not>
+        <not>LoL</not>
         <autogen>
             __KeyToKey__
             KeyCode::COMMAND_L,
@@ -40,6 +45,7 @@
         <name>Switch Command+Tab and Control+Tab(except iterm2)</name>
         <identifier>private.command_tab_control_tab_iterm2</identifier>
         <not>iTerm2</not>
+        <not>LoL</not>
         <autogen>
             __KeyToKey__
             KeyCode::TAB, MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_CONTROL,
