@@ -15,3 +15,12 @@ brew update
 # tmux copy+paste
 brew install reattach-to-user-namespace
 
+# essential crap
+brew install git
+brew install python
+brew install vim
+
+brew install caskroom/cask/brew-cask
+
+brew cask install bartender
+brew cask install iterm2
