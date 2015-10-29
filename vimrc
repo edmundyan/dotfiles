@@ -50,6 +50,7 @@ set equalalways " Multiple windows, when created, are equal in size
 set splitbelow splitright
 
 set mouse=a  " enable scroll with mouse wheel
+set clipboard=unnamed " yank to clipboard
 
 " Set '\' and ' ' as leader
 let mapleader="\\"
