@@ -16,6 +16,8 @@ declare -a dotfile_whitelist=(
   .vim\
   .vimrc\
   .slate\
+  .zshrc\
+  .secretrc\
 )
 
 # Custom mapping of source to target link
