@@ -19,6 +19,7 @@ brew install reattach-to-user-namespace
 brew install git
 brew install python
 brew install vim
+brew install the_silver_searcher
 
 brew install caskroom/cask/brew-cask
 
