@@ -1,0 +1,2 @@
+alias cls='printf "\033c"'
+alias gitbr="git for-each-ref --count=30 --sort=-committerdate refs/heads/ --format='%(committerdate:short) %(refname:short)' | tail -r"
