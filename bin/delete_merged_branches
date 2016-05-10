@@ -1,0 +1,3 @@
+git remote | xargs -n 1 -I remote_name git remote prune remote_name
+git branch --merged | grep -v "\*" | grep -v 'deploy' | grep -v 'master' | xargs -n 1 git branch -d
+

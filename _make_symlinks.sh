@@ -103,3 +103,7 @@ for i in $(seq 0 2 $custom_mappings_len); do
     do_the_stuff "${custom_file_mappings[$i]}" "${custom_file_mappings[${i_plus}]}"
 done
 
+
+for bin_file in "$PWD/bin"/*; do
+    echo "heyyy $bin_file"
+done
