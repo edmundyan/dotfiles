@@ -26,6 +26,7 @@
   up = "!git remote update -p; git merge --ff-only @{u}"
   everything = log --pretty=format: --name-only --diff-filter=A
   browse = "!hub browse"
+  pf = push --force-with-lease
 [push]
   default = simple
 [merge]
