@@ -177,7 +177,7 @@ let Tlist_WinWidth = 45
 " set statusline+=%*
 " let g:syntastic_disable=['py']
 let g:syntastic_enable_signs=0 "sign markings (at beginning of line, before line numbers)
-let g:syntastic_enable_highlighting=2
+let g:syntastic_enable_highlighting=1
 let g:syntastic_auto_loc_list=0
 let g:syntastic_check_on_open=0
 let g:syntastic_python_flake8_post_args='--ignore=E501,E128,E225,E302,E702,E126'

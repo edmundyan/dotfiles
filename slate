@@ -101,6 +101,7 @@ bind z:${hyper} undo
  
 # Throws
 bind n:${hyper} throw next
+bind n:ctrl;shift;cmd throw next resize
 bind right:ctrl;shift;cmd throw right resize
 bind left:ctrl;shift;cmd  throw left  resize
  
