@@ -257,3 +257,4 @@ let g:multi_cursor_use_default_mapping=0
 let g:multi_cursor_next_key = '<C-d>'
 let g:multi_cursor_quit_key='<Esc>'
 
+let g:bufExplorerShowRelativePath=1  " Show relative paths.
