@@ -88,6 +88,7 @@ source /Users/edyan/.rvm/scripts/rvm
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 export PATH="$PATH:$HOME/bin" # Add RVM to PATH for scripting
 export SHABU_REPO=~/tree/shabu
+export DATA_SCIENCE_REPO=~/tree/venmo-backend/venmo-data-science
 
 # up/down history searching
 bindkey '^[[A' history-search-backward
