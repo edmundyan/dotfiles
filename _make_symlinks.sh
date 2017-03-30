@@ -6,6 +6,7 @@
 
 # All of these files go to '~/*'
 declare -a dotfile_whitelist=(
+  .aliases
   .bash_profile\
   .bash_includes\
   .gitconfig\

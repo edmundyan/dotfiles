@@ -95,3 +95,7 @@ bindkey '^[[A' history-search-backward
 bindkey '^[[B' history-search-forward
 set show-all-if-ambiguous on
 set completion-ignore-case on
+
+# sparrrrk
+export SPARK_HOME=/spark
+export PATH="$SPARK_HOME/bin:$PATH"

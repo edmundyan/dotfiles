@@ -27,6 +27,7 @@
   everything = log --pretty=format: --name-only --diff-filter=A
   browse = "!hub browse"
   pf = push --force-with-lease
+  staged = diff --staged
 [push]
   default = simple
 [merge]
