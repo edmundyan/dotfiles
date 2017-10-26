@@ -24,7 +24,7 @@ declare -a dotfile_whitelist=(
 # Custom mapping of source to target link
 # 1D array of [source1, target1, source2, target2 ... ]
 declare -a custom_file_mappings=(
-    "karabiner.xml" "${HOME}/Library/Application Support/Karabiner/private.xml" \
+    "karabiner.json" "${HOME}/.config/karabiner/karabiner.json" \
 )
 backup_dir="${HOME}/old_dotfiles"
 
