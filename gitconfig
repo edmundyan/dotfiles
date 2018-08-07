@@ -1,6 +1,6 @@
 [user]
   name = Edmund Yan
-  email = edmund.yan@venmo.com
+  email = edmundhyan@gmail.com
 [core]
 	excludesfile = /Users/edyan/.gitignore
 	editor = vim
@@ -34,14 +34,6 @@
   defaultToUpstream = true
 [color]
   ui = true
-[hub]
-  host = github.braintreeps.com
-[difftool "sourcetree"]
-	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path = 
-[mergetool "sourcetree"]
-	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-	trustExitCode = true
 [filter "hawser"]
 	clean = git hawser clean %f
 	smudge = git hawser smudge %f
