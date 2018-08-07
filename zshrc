@@ -99,3 +99,8 @@ set completion-ignore-case on
 # sparrrrk
 export SPARK_HOME=/spark
 export PATH="$SPARK_HOME/bin:$PATH"
+
+# Pyenv
+if command -v pyenv 1>/dev/null 2>&1; then
+  eval "$(pyenv init -)"
+fi
