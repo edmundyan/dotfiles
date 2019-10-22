@@ -1,3 +1,3 @@
-export GITHUB_UPSTREAM=venmo
+export GITHUB_UPSTREAM=WeConnect
 
-git log --merges --ancestry-path --oneline $1..master | grep 'pull request' | tail -n1 | awk '{print $5}' | cut -c2- | xargs -I % open https://github.braintreeps.com/$GITHUB_UPSTREAM/${PWD##*/}/pull/%
+git log --merges --ancestry-path --oneline $1..master | grep 'pull request' | tail -n1 | awk '{print $5}' | cut -c2- | xargs -I % open https://github.com/$GITHUB_UPSTREAM/${PWD##*/}/pull/%

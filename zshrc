@@ -45,13 +45,19 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git sublime supervisor)
+plugins=(
+    git
+    sublime
+    supervisor
+    pyenv
+)
 
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
 export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
+export PATH="$PATH:/Users/edmund.yan/bin/"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
@@ -67,9 +73,6 @@ export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
-# ssh
-# export SSH_KEY_PATH="~/.ssh/dsa_id"
-
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
@@ -82,19 +85,13 @@ export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
 # EDMUND
 source ~/.secretrc
 source ~/.aliases
-# Virtualenv for Python
-source /usr/local/bin/virtualenvwrapper.sh
-source /Users/edyan/.rvm/scripts/rvm
-export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
-export PATH="$PATH:$HOME/bin" # Add RVM to PATH for scripting
-export SHABU_REPO=~/tree/shabu
-export DATA_SCIENCE_REPO=~/tree/venmo-backend/venmo-data-science
-
+#
 # up/down history searching
 bindkey '^[[A' history-search-backward
 bindkey '^[[B' history-search-forward
 set show-all-if-ambiguous on
 set completion-ignore-case on
+
 
 # sparrrrk
 export SPARK_HOME=/spark
@@ -103,4 +100,30 @@ export PATH="$SPARK_HOME/bin:$PATH"
 # Pyenv
 if command -v pyenv 1>/dev/null 2>&1; then
   eval "$(pyenv init -)"
+  eval "$(pyenv virtualenv-init -)"
 fi
+
+#USAGE: 
+# cd <directory containing data_scripts>
+# run_script a_script_name.sql # runs the first schedule specified 
+# OR
+# run_script a_script_name.sql 1 #(run the second schedule in a script (zero-based index)
+function run_script(){
+    python -i -c "
+from we_module.we import We;
+from we_module.materialize import Materialize
+we=We(True,True)
+mat=Materialize(we)
+script_path = '$1'
+mat.load_script(script_path)
+schedule_to_use = ${2:-0}
+mat.materialize_script(mat.config['schedule'][schedule_to_use])
+quit()"
+}
+export WRITE_SCHEMA='dw'
+export STAGING_SCHEMA='dw_data'
+
+
+alias okta-aws='f(){ cmd="docker run -it --rm -v ~/.aws:/package/.aws quay.io/wework/okta-aws sh -c \"python /package/samlapi.py "$@"\""; bash -c "${cmd}" unset -f f; }; f'
+
+eval "$(direnv hook zsh)"

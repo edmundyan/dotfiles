@@ -16,12 +16,12 @@ syntax enable
 colorscheme tomorrow-night-dcosson
 
 "Simple switching between hard tabs and spaces
-command! -nargs=* HardTab setlocal noexpandtab shiftwidth=4
+command! -nargs=* HardTab setlocal noexpandtab shiftwidth=2
 command! -nargs=? SoftTab setlocal expandtab tabstop=<args> shiftwidth=<args> softtabstop=<args>
 
 set number
 set et
-set sw=4
+set sw=2
 set smarttab
 " set smartindent
 set incsearch
@@ -76,7 +76,7 @@ augroup CursorLine
 augroup END
 
 " Python
-autocmd FileType python set nosmartindent list shiftwidth=4 softtabstop=4
+autocmd FileType python set nosmartindent list shiftwidth=2 softtabstop=2
 autocmd FileType python set omnifunc=pythoncomplete#Complete
 let g:pydiction_location = '~/.vim/bundle/pydiction/complete-dict'
 autocmd FileType python nmap ,8 :call Pep8()<CR>
@@ -107,7 +107,8 @@ let g:ctrlp_custom_ignore = {
   \ 'dir':  '\v[\/](\.git|node_modules)$',
   \ 'file': '\v\.(exe|so|dll|pyc)$|venmo_tests/cassettes/.*$',
   \ }
-let NERDTreeIgnore=[ '\.pyc$', '\.pyo$' ]
+let NERDTreeIgnore=[ '\.pyc$', '\.pyo$', '__pycache__' ]
+
 
 " fix backspace in vim 7
 :set backspace=indent,eol,start
