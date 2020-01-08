@@ -47,3 +47,6 @@
 	helper = osxkeychain
 [url "ssh://git@github.com"]
 	insteadOf = https://github.com
+# use separate file for username / github token / etc
+[include]
+  path = ~/.gitconfig.local

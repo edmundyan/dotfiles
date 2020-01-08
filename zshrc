@@ -85,6 +85,7 @@ export PATH="$PATH:/Users/edmund.yan/bin/"
 # EDMUND
 source ~/.secretrc
 source ~/.aliases
+source ~/.aliases_local
 #
 # up/down history searching
 bindkey '^[[A' history-search-backward
@@ -92,38 +93,34 @@ bindkey '^[[B' history-search-forward
 set show-all-if-ambiguous on
 set completion-ignore-case on
 
-
-# sparrrrk
-export SPARK_HOME=/spark
-export PATH="$SPARK_HOME/bin:$PATH"
-
 # Pyenv
 if command -v pyenv 1>/dev/null 2>&1; then
   eval "$(pyenv init -)"
   eval "$(pyenv virtualenv-init -)"
 fi
 
-#USAGE: 
-# cd <directory containing data_scripts>
-# run_script a_script_name.sql # runs the first schedule specified 
-# OR
-# run_script a_script_name.sql 1 #(run the second schedule in a script (zero-based index)
-function run_script(){
-    python -i -c "
-from we_module.we import We;
-from we_module.materialize import Materialize
-we=We(True,True)
-mat=Materialize(we)
-script_path = '$1'
-mat.load_script(script_path)
-schedule_to_use = ${2:-0}
-mat.materialize_script(mat.config['schedule'][schedule_to_use])
-quit()"
-}
-export WRITE_SCHEMA='dw'
-export STAGING_SCHEMA='dw_data'
-
-
-alias okta-aws='f(){ cmd="docker run -it --rm -v ~/.aws:/package/.aws quay.io/wework/okta-aws sh -c \"python /package/samlapi.py "$@"\""; bash -c "${cmd}" unset -f f; }; f'
-
 eval "$(direnv hook zsh)"
+
+#### START dd laptop-ansible block
+# Prefer GNU binaries to Macintosh binaries.
+export PATH="/usr/local/opt/coreutils/libexec/gnubin:${PATH}"
+
+# Add datadog devtools binaries to the PATH
+export PATH="${HOME?}/dd/devtools/bin:${PATH?}"
+
+# Point GOPATH to our go sources
+export GOPATH="${HOME?}/go"
+
+# Point DATADOG_ROOT to ~/dd symlink
+export DATADOG_ROOT="${HOME?}/dd"
+
+# Tell the devenv vm to mount $GOPATH/src rather than just dd-go
+export MOUNT_ALL_GO_SRC=1
+
+# store key in the login keychain instead of aws-vault managing a hidden keychain
+export AWS_VAULT_KEYCHAIN_NAME=login
+
+# tweak session times so you don't have to re-enter passwords every 5min
+export AWS_SESSION_TTL=24h
+export AWS_ASSUME_ROLE_TTL=1h
+# END ANSIBLE MANAGED BLOCK
