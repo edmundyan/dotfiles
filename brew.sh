@@ -29,3 +29,4 @@ brew install caskroom/cask/brew-cask
 brew cask install bartender
 brew cask install iterm2
 brew cask install slate
+brew cask install 1password-cli
