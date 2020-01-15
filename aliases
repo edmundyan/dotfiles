@@ -1,2 +1,11 @@
 alias cls='printf "\033c"'
 alias gitbr="git for-each-ref --count=30 --sort=-committerdate refs/heads/ --format='%(committerdate:short) %(refname:short)' | tail -r"
+
+## Colorize the ls output ##
+alias ls='ls --color=auto'
+
+## Use a long listing format ##
+alias ll='ls -la'
+
+## Show hidden files ##
+alias l.='ls -d .* --color=auto'
