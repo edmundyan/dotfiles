@@ -1,6 +1,6 @@
 [user]
-  name = Edmund Yan
-  email = edmundhyan@gmail.com
+	name = Edmund Yan
+	email = edmundhyan@gmail.com
 [core]
 	excludesfile = /Users/edyan/.gitignore
 	editor = vim
@@ -45,3 +45,8 @@
 	required = true
 [credential]
 	helper = osxkeychain
+[url "ssh://git@github.com"]
+	insteadOf = https://github.com
+# use separate file for username / github token / etc
+[include]
+  path = ~/.gitconfig.local

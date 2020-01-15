@@ -19,6 +19,7 @@ declare -a dotfile_whitelist=(
   .slate\
   .zshrc\
   .secretrc\
+  .zprofile\
 )
 
 # Custom mapping of source to target link
