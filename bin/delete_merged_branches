@@ -1,3 +1,6 @@
-git remote | xargs -n 1 -I remote_name git remote prune remote_name
-git branch --merged | grep -v "\*" | grep -v 'deploy' | grep -v 'master' | xargs -n 1 git branch -d
+#!/bin/bash
 
+git remote | xargs -n 1 -I remote_name git remote prune remote_name;
+git branch --merged | grep -v "\*" | grep -v 'deploy' | grep -v 'master' | xargs -n 1 git branch -d;
+
+git checkout -q master && git for-each-ref refs/heads/ "--format=%(refname:short)" | while read branch; do mergeBase=$(git merge-base master $branch) && [[ $(git cherry master $(git commit-tree $(git rev-parse $branch^{tree}) -p $mergeBase -m _)) == "-"* ]] && git branch -D $branch; done
