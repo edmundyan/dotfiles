@@ -1,5 +1,5 @@
 alias cls='printf "\033c"'
-alias gitbr="git for-each-ref --count=30 --sort=-committerdate refs/heads/ --format='%(committerdate:short) %(refname:short)' | tail -r"
+alias gitbr="git for-each-ref --count=30 --sort=-committerdate refs/heads/ --format='%(committerdate:short) %(refname:short)' | tac"
 
 ## Colorize the ls output ##
 alias ls='ls --color=auto'

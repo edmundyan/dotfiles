@@ -14,6 +14,7 @@
   br = branch
   ci = commit -a
   co = checkout
+  cp = cherry-pick
   dwc = diff -w -M --color-words
   fix = rebase -i origin/master
   new = !sh -c 'git log $1@{1}..$1@{0} "$@"'
