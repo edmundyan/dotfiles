@@ -124,3 +124,10 @@ export AWS_VAULT_KEYCHAIN_NAME=login
 export AWS_SESSION_TTL=24h
 export AWS_ASSUME_ROLE_TTL=1h
 # END ANSIBLE MANAGED BLOCK
+#
+lastdl () { echo "~/Downloads/$(ls -tr ~/Downloads/|tail -1)" }
+
+function ldown () {
+  local file=~/Downloads/$(ls -1t ~/Downloads/ | head -n1)
+  echo $file
+}
