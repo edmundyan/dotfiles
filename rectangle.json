@@ -1,0 +1,6 @@
+{
+  "leftHalf": { "keyCode": 123, "modifierFlags": 917504 },
+  "rightHalf": { "keyCode": 124, "modifierFlags": 917504 },
+  "previousDisplay": { "keyCode": 123, "modifierFlags": 1966080 },
+  "nextDisplay": { "keyCode": 124, "modifierFlags": 1966080 }
+}
