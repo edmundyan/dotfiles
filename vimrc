@@ -236,15 +236,18 @@ let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
 nmap <Ctrl>P ::CtrlPClearCache<CR>
 "
-" The Silver Searcher
-if executable('ag')
-  " Use ag over grep
-  set grepprg=ag\ --nogroup\ --nocolor
+" Ripgrep
+if executable('rg')
+  " Use rg over grep
+  set grepprg=rg\ --vimgrep\ --no-heading\ --smart-case
 
-  " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
-  let g:ctrlp_user_command = 'ag %s -l --nocolor --ignore "*/*.yaml" -g "" '
+  " Point the ag.vim plugin's :Ag command at rg instead of ag
+  let g:ag_prg = 'rg --vimgrep --no-heading --smart-case'
 
-  " ag is fast enough that CtrlP doesn't need to cache
+  " Use rg in CtrlP for listing files. Lightning fast and respects .gitignore
+  let g:ctrlp_user_command = 'rg %s --files --color=never --glob "!*/*.yaml"'
+
+  " rg is fast enough that CtrlP doesn't need to cache
   let g:ctrlp_use_caching = 0
 endif
 

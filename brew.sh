@@ -16,17 +16,9 @@ brew update
 brew install reattach-to-user-namespace
 
 # essential crap
-brew install git
-brew install python@2
 brew install vim
 brew install tmux
-brew install pyenv
-brew install pyenv-virtualenv
-brew install the_silver_searcher
+brew install ripgrep
+brew install fd
 
-brew install caskroom/cask/brew-cask
 
-brew cask install bartender
-brew cask install iterm2
-brew cask install slate
-brew cask install 1password-cli
