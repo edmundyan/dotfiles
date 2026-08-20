@@ -1,8 +1,19 @@
+# Personal/public git config, safe to include from any machine's ~/.gitconfig.
+# Machine- or employer-specific overrides (identity, hooksPath, includeIf blocks,
+# etc.) belong in ~/.gitconfig itself, placed AFTER the [include] that pulls this
+# file in, so they take precedence.
+#
+# To wire this up on a new laptop:
+#   1. Clone/symlink this dotfiles repo (see _make_symlinks.sh)
+#   2. Add to the top of ~/.gitconfig:
+#        [include]
+#          path = ~/tree/dotfiles/gitconfig
+#   3. Set user.email in ~/.gitconfig itself (not here, since this file is public)
+
 [user]
 	name = Edmund Yan
-	email = edmundhyan@gmail.com
 [core]
-	excludesfile = /Users/edyan/.gitignore
+	excludesfile = ~/.gitignore
 	editor = vim
 [rerere]
   enabled = 1
