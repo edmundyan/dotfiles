@@ -8,9 +8,6 @@
 HISTFILESIZE=100000
 HISTSIZE=10000
 
-### Source my general (osx or linux) bash setup
-[[ -f ~/.bash_includes ]] && source ~/.bash_includes
-
 # make less more friendly for non-text input files, see lesspipe(1)
 [ -x /usr/bin/lesspipe ] && eval "$(lesspipe)"
 
