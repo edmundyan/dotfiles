@@ -46,6 +46,7 @@
 [submodule "vim/bundle/vim-multiple-cursors"]
 	path = vim/bundle/vim-multiple-cursors
 	url = git@github.com:terryma/vim-multiple-cursors.git
+	ignore = untracked
 [submodule "vim/bundle/ag.vim"]
 	path = vim/bundle/ag.vim
 	url = git@github.com:rking/ag.vim.git
@@ -61,6 +62,7 @@
 [submodule "vim/bundle/greplace.vim"]
 	path = vim/bundle/greplace.vim
 	url = git@github.com:vim-scripts/greplace.vim.git
+	ignore = untracked
 [submodule "vim/bundle/vim-airline"]
 	path = vim/bundle/vim-airline
 	url = https://github.com/vim-airline/vim-airline.git

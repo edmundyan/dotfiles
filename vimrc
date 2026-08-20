@@ -2,7 +2,8 @@
 set nocompatible
 filetype off " Pathogen needs to run before plugin indent on
 call pathogen#infect()
-call pathogen#helptags() " generate helptags for everything in 'runtimepath'
+" run :Helptags manually after installing/updating a plugin instead of
+" regenerating helptags for every bundle on every vim startup
 filetype plugin indent on
 filetype on
 syntax enable
