@@ -35,7 +35,6 @@ set showmode
 set showcmd
 set ai " Automatically set the indent of a new line (local to buffer)
 set tags=./tags;
-set grepprg=ack
 set hidden
 set noswapfile
 
@@ -52,9 +51,8 @@ set splitbelow splitright
 set mouse=a  " enable scroll with mouse wheel
 set clipboard=unnamed " yank to clipboard
 
-" Set '\' and ' ' as leader
+" Set '\' as leader
 let mapleader="\\"
-:map " " <leader>
 
 " Powerline status line
 let g:Powerline_symbols = 'fancy'
@@ -124,7 +122,6 @@ vmap ,c "*y
 nmap ,v :set paste<CR>"*p:set nopaste<CR>
 nnoremap <F1> :set invpaste paste?<CR>
 set pastetoggle=<F1>
-set showmode
 " underline current line, markdown style
 nmap ,u "zyy"zp:.s/./-/g<CR>:let @/ = ""<CR>
 
@@ -209,7 +206,7 @@ fun! PullAndRefresh()
   bufdo e!
   set confirm
 endfun
-nmap <Leader>gr call PullAndRefresh()
+nmap <Leader>gr :call PullAndRefresh()<CR>
 
 " --- Vimux commands to run tests
 let g:vimux_nose_setup_cmd="vagrant ssh; cd /vagrant"
