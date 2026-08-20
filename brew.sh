@@ -21,4 +21,7 @@ brew install tmux
 brew install ripgrep
 brew install fd
 
+# nerd font w/ powerline glyphs, needed for vim-airline/tmux statusline symbols
+# (after installing, set it as your terminal's font)
+brew install --cask font-meslo-lg-nerd-font
 
