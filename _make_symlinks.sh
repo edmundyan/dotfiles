@@ -12,10 +12,8 @@ declare -a dotfile_whitelist=(
   .tmux.conf\
   .vim\
   .vimrc\
-  .slate\
   .zshrc\
   .secretrc\
-  .zprofile\
 )
 
 # Custom mapping of source to target link
