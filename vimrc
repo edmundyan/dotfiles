@@ -54,9 +54,9 @@ set clipboard=unnamed " yank to clipboard
 " Set '\' as leader
 let mapleader="\\"
 
-" Powerline status line
-let g:Powerline_symbols = 'fancy'
-let g:Powerline_colorscheme = 'default'
+" vim-airline status line
+let g:airline_powerline_fonts = 1
+let g:airline_theme = 'dark'
 set t_Co=256
 set laststatus=2 "show even if window not split
 " set statusline=%F%m%r%h%w\ \ \ [TYPE=%Y]\ \ \ [POS=%l,%v][%p%%]" [FORMAT=%{&ff}] %{strftime(\"%d/%m/%y\ -\ %H:%M\")} %F%m%r%h%w
